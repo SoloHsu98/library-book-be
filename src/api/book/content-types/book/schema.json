@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "books",
+  "info": {
+    "singularName": "book",
+    "pluralName": "books",
+    "displayName": "book",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "bookCover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "rating": {
+      "type": "decimal"
+    },
+    "year": {
+      "type": "integer"
+    },
+    "saved": {
+      "type": "boolean"
+    },
+    "genre": {
+      "type": "enumeration",
+      "enum": [
+        "Horror",
+        "Comedy",
+        "Romance",
+        "Manga"
+      ]
+    },
+    "authors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::author.author",
+      "inversedBy": "books"
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::comment.comment",
+      "inversedBy": "books"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "best-seller"
+      ]
+    },
+    "summary": {
+      "type": "richtext"
+    }
+  }
+}
